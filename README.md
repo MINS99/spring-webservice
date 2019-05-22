@@ -35,3 +35,12 @@ https://jojoldu.tistory.com/250 를 참고하였습니당
 > **TIP:** 위의 세개의 어노테이션은 Lombok 라이브러리 어노테이션으로 코드 변경량을 최소화 시켜줌<br>
 > Lombok은 의존성만 추가하여 IDE에서 사용할 수 없으므로 사용환경 구성이 필요
 
+<br>
+<pre>
+public interface PostRepository extends JpaRepository<Posts, Long> { }
+</pre>
+* PostsRepository.java
+  - ibatis/MyBatis에서 Dao로 불리는 DB Layer 접근자
+  - JPA에서는 Repository 라고 부르며 인터페이스로 생성
+  - 인터페이스 생성 후 **JpaRepository<Entity클래스, PK타입>** 상속하면 기본적인 CRUD 메소드 자동생성
+
