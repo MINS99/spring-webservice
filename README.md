@@ -39,6 +39,7 @@ https://jojoldu.tistory.com/250 를 참고하였습니당
 <pre>
 public interface PostRepository extends JpaRepository<Posts, Long> { }
 </pre>
+
 * PostsRepository.java
   - ibatis/MyBatis에서 Dao로 불리는 DB Layer 접근자
   - JPA에서는 Repository 라고 부르며 인터페이스로 생성
