@@ -84,3 +84,20 @@ public interface PostRepository extends JpaRepository<Posts, Long> { }
   - 테스트 결과 검증
   - DB에 insert 되었는지 조회를 통해 값 확인
   
+<hr>
+
+### Dependency
+1. h2
+![image](https://t1.daumcdn.net/cfile/tistory/998D714C5A44FA5A0E)
+* 사용방법<br>
+  1\) Application.java를 실행시키고, 브라우저에서 http://localhost:8080/h2-console 로 접속<br>
+  2\) JDBC URL : jdbc:h2:mem:testdb 입력 후 connect 버튼을 통해 접속<br>
+
+
+<hr>
+
+### ETC
+1. application.properties -> application.yml
+* ```yml``` 
+  - properties에 비해 상대적으로 유연한 구조
+  - 상위 계층에 대한 표현, List 등을 완전하게 표현 가능
