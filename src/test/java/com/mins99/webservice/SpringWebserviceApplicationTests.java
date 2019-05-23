@@ -1,4 +1,4 @@
-package com.mins99.springwebservice;
+package com.mins99.webservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -37,10 +37,24 @@ https://jojoldu.tistory.com/250 를 참고하였습니당
 
 <br>
 
-* ``` PostsRepository.java ```
+2\. PostsRepository.java
   - ibatis/MyBatis에서 Dao로 불리는 DB Layer 접근자
   - JPA에서는 Repository 라고 부르며 인터페이스로 생성
   - 인터페이스 생성 후 **JpaRepository<Entity클래스, PK타입>** 상속하면 기본적인 CRUD 메소드 자동생성
 ```java
 public interface PostRepository extends JpaRepository<Posts, Long> { }
 ```
+
+<hr>
+
+### test
+1. PostsRepositoryTest.java
+* ``` given ```
+  - 테스트 기반 환경 구축
+  - ``` @builder ``` 사용법도 같이 확인
+* ``` when ```
+  - 테스트 하고자 하는 행위 선언
+  - 여기서는 Posts가 DB에 insert 되는 것 확인용
+* ``` then ```
+  - 테스트 결과 검증
+  - DB에 insert 되었는지 조회를 통해 값 확
