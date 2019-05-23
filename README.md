@@ -47,6 +47,31 @@ public interface PostRepository extends JpaRepository<Posts, Long> { }
 
 <hr>
 
+### Controller
+1. WebRestController.java
+* ``` Spring Bean 생성 방법 ``` 
+  - @Autowired(비권장)
+  - setter
+  - **생성자(권장)**
+  
+* ``` @AllArgsConstructor ```
+  - Lombok, 모든 필드를 인자값으로 하는 생성자 생성
+  - 의존성 관계가 변경될때마다 생성자 코드를 계속 수정하지 않아도 됨
+
+<hr>
+
+### DTO
+1. PostsSaveRequestDto.java
+* ``` @Setter ```
+  - controller에서 ``` @RequestBody ```로 외부에서 데이터를 받는 경우 **기본생성자 + set 메소드** 로만 값이 할당 됨
+  - 이때만 ``` @Setter ``` 허용
+  - **테이블과 매핑되는 entity class와 controller DTO를 분리하자**
+     - entity class 변경시 여러 클래스에 영향을 줄 수 있다
+     - request/response용 DTO는 자주 변경 되므로 분리가 필요함
+
+
+<hr>
+
 ### test
 1. PostsRepositoryTest.java
 * ``` given ```
@@ -57,4 +82,5 @@ public interface PostRepository extends JpaRepository<Posts, Long> { }
   - 여기서는 Posts가 DB에 insert 되는 것 확인용
 * ``` then ```
   - 테스트 결과 검증
-  - DB에 insert 되었는지 조회를 통해 값 확
+  - DB에 insert 되었는지 조회를 통해 값 확인
+  
