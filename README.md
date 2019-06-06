@@ -101,3 +101,16 @@ public interface PostRepository extends JpaRepository<Posts, Long> { }
 * ```yml``` 
   - properties에 비해 상대적으로 유연한 구조
   - 상위 계층에 대한 표현, List 등을 완전하게 표현 가능
+
+2.JPA Auditing
+  - createDate, modifyDate 를 따로 추가하지 않고 자동으로 추가 해줌
+* ```LocalDateTime```
+  - Java8 부터 등장
+  - 기본 날짜 타입인 Date의 문제점 수정
+* ```@MappedSuperclass```
+  - JPA Entity 클래스들이 BaseTimeEntity을 상속할 경우 필드들(createdDate, modifiedDate)도 컬럼으로 인식하도록 함
+* ```@EntityListeners(AuditingEntityListener.class)```
+  - BaseTimeEntity클래스에 Auditing 기능을 포함
+* ```@EnalbeJpaAuditing```
+  - JPA Auditing 어노테이션들을 모두 활성화시키는 어노테이션
+  - application run하는 메소드에 추가(ex. Application.java)

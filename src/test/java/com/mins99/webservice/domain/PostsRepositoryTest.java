@@ -8,8 +8,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -32,6 +36,7 @@ public class PostsRepositoryTest {
     @Test
     public void getBoard() {
         //given
+        LocalDateTime now = LocalDateTime.now();
         postRepository.save(Posts.builder()
         .title("test")
         .content("시우민 제대해라")
@@ -45,6 +50,8 @@ public class PostsRepositoryTest {
         Posts posts = postsList.get(0);
         assertThat(posts.getTitle(), is("test"));
         assertThat(posts.getContent(), is("시우민 제대해라"));
+        assertTrue(posts.getCreateDate().isAfter(now));
+        assertTrue(posts.getModifiedDate().isAfter(now));
 
     }
 }
